@@ -1,0 +1,125 @@
+body {
+    margin: 0px;
+    background-color: #272727;
+}
+
+div {
+    display: block;
+}
+
+/* Top of the site */
+.header {
+    height: 150px;
+    text-align: center;
+    background-image: url('../img/header.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+}
+
+/*Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* Sidebar/left column */
+.left-side {
+    width: 25%!important;
+    background-color: #d3d3d3;
+}
+
+a {
+    font-size: 1.3em;
+}
+
+/* Main column */
+.main {
+    width: 50%;
+    background-color: transparent;
+    color: white;
+}
+
+.rele {
+    color: #ef0000;
+    text-align: center;
+    background-image: url('/img/bg1.jpg');
+    background-position: center;
+    font-size: 3em;
+    font-family: Times New Roman;
+}
+
+article {
+	padding: 5px;
+	text-align: justify;
+    border: 1px #c7c7c7 solid;
+}
+
+article img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+article h3 {
+	padding: 0px!important;
+	color: #49d61b;
+	text-align: center;
+}
+
+
+.full-news-left img {
+    width: 300px;
+}
+
+.full-news-right-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 3px #eaeaea solid;
+    margin: 0 0 15px 0;
+    position: relative;
+}
+
+.full-news-info {
+    position: relative;
+    margin: 0 0 20px 0;
+}
+
+/* Download part */
+.quote {
+    background: #420f0f;
+    padding: 11px;
+    color: #7f7ac8;
+    clear: both;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    margin: 0 0 5px 0;
+    font-size: 11px;
+}
+
+/* Sidebar/right column */
+.right-side {
+    width: 25%!important;
+    background-color: #d3d3d3;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+/* Footer of site */
+.footer {
+	padding: 0px!important;
+    color: white;
+    text-align: right;
+    background: #000;
+}
+
+/* Color of name */
+.ChloePrice {
+    color: #3237cc;
+}

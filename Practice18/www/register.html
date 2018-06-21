@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=" utf-8 ">
+    <link rel="stylesheet " href="css\cgw.css ">
+    <link rel="stylesheet " href="css\register.css ">
+    <script src="script\register.js"></script>
+    <title>CGW // Metal - register</title>
+</head>
+
+<body>
+    <header class="header "></header>
+    <div class="row ">
+        <nav class="left-side ">
+            <h3>&nbsp;Links:</h3>
+            &nbsp;<a href="check.html">0. JS task</a>
+            <br>
+            &nbsp;<a href="https://cgw-metal.com">1. Main page</a>
+            <br>
+            &nbsp;<a href="genres.html">2. Genres</a>
+            <br>
+            &nbsp;<a href="guitars.html">3. Guitars</a>
+            <br>
+            &nbsp;<a href="bands.html">4. Bands</a>
+            <br>
+            &nbsp;<a href="http://mapofmetal.com/#/home">5. Map of Metal</a>
+            <br>
+            &nbsp;<a href="https://www.metal-archives.com/">6. Encyclopaedia Metallum</a>
+            <br>
+            &nbsp;<a href="register.html">7. Registration</a>
+        </nav>
+        <section class="main ">
+            <form action="/php/register.php" style="border:1px solid #ccc " method="POST">
+                <div class="container ">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+            <label for="usrname"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="usrname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password " name="psw" required>
+                    <br>
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password " name="psw-repeat" required>
+                    
+                    <div class="clearfix ">
+                    <button type="button " class="cancelbtn ">Cancel</button>
+                    <button type="submit " class="signupbtn ">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <div class="right-side ">
+            <h3>&nbsp;Интересная информация:</h3>
+            <ul>
+                <li>Автор был полностью непьющим человеком до поступления в университет</li>
+                <li>Группа, с которой началось полноценное погружение в мир тяжёлой музыки автора - Linkin Park</li>
+                <li>Углубление в тяж. музыку началось примерно в 13-14 лет</li>
+                <li>Веб-Технологии - самый быстросдающий предмет автора</li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer">
+        Site created by Vlad Romanenko aka 
+        <a href="http://life-is-strange.wikia.com/wiki/Chloe_Price" class="ChloePrice">
+            Chloe Price
+        </a>.
+        <br> 2018. All rights reserved.
+    </footer>
+</body>
+
+</html>

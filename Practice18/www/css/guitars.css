@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+article {
+    font-family: 'Open Sans', 'sans-serif';
+    color: white;
+    overflow: hidden;
+}
+
+article img {
+    background-position: center!important;
+    width: 100%!important;
+    height: 400px!important;
+}
+
+article a {
+    display: block;
+    text-align: center!important;
+    color: #e0ed14;
+}
+
+.part-1,
+.part-2,
+.part-3 {
+    margin: 5px;
+    display: block;
+    text-align: center;
+    font-size: 1.1em;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.part-1 {
+    animation-name: anim-1;
+}
+
+.part-2 {
+    animation-name: anim-2;
+}
+
+
+.part-3 {
+    animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+    0%,
+    8.3% {
+        left: -100%;
+        opacity: 0;
+    }
+    8.3%,
+    25% {
+        left: 25%;
+        opacity: 1;
+    }
+    33.33%,
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+@keyframes anim-2 {
+    0%,
+    33.33% {
+        left: -100%;
+        opacity: 0;
+    }
+    41.63%,
+    58.29% {
+        left: 25%;
+        opacity: 1;
+    }
+    66.66%,
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+@keyframes anim-3 {
+    0%,
+    66.66% {
+        left: -100%;
+        opacity: 0;
+    }
+    74.96%,
+    91.62% {
+        left: 25%;
+        opacity: 1;
+    }
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
