@@ -2,6 +2,8 @@ package com.practical.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -37,6 +39,13 @@ public class Album implements Serializable {
 	@NotNull
 	@Size(max = 40)
 	private String genre;
+	
+	@ManyToOne
+	@JoinColumn(name = "parent_id", nullable = false)
+	private Artist artist;
+	
+	@OneToMany(mappedBy = "album")
+	private Set<Song> song = new HashSet<Song>();
 
 	public Long getId() {
 		return id;
@@ -69,6 +78,15 @@ public class Album implements Serializable {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
+
+	public Artist getArtist() {
+		return artist;
+	}
+
+	public void setArtist(Artist artist) {
+		this.artist = artist;
+	}
+	
 	
 	
 }

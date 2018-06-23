@@ -30,6 +30,10 @@ public class Song implements Serializable {
    
 	@NotNull
 	private int number;
+	
+	@ManyToOne
+	@JoinColumn(name = "album_id", nullable = false)
+	private Album album;
 
 	public Long getId() {
 		return id;
