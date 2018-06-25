@@ -58,5 +58,14 @@ public class Song implements Serializable {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+
+	public Album getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
+	
 	
 }

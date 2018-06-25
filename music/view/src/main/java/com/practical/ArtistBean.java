@@ -1,6 +1,7 @@
 package com.practical;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -30,17 +31,17 @@ public class ArtistBean implements Serializable {
 	
 	public void createArtist() {
 		if(artist == null)
-			artist = artistManagerBean.createActor();
+			artist = artistManagerBean.createArtist("Some Artist", new Date(1994,05,21), "USA");
 	}
 	
 	public void createAlbum() {
 		if(album == null)
-			album = albumManagerBean.createAlbum();
+			album = albumManagerBean.createAlbum("Some ALbum", new Date(1994,05,21), "genre", artist);
 	}
 	
 	public void createSong() {
 		if(song == null)
-			song = songManagerBean.createSong();
+			song = songManagerBean.createSong("Some Song", 1, album);
 	}
 	
 }
