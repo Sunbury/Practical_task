@@ -1,6 +1,5 @@
 /.metadata/
-.recommenders/
-.classpath*
-.project*
-
-
+/.recommenders/
+.classpath
+.project
+/RemoteSystemsTempFiles/
