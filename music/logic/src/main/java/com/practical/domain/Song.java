@@ -2,7 +2,6 @@ package com.practical.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -21,18 +20,17 @@ public class Song implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="SONG_ID")
 	private Long id;
 	
-	@NotNull
 	@Size(max = 60)
 	private String name;
    
-	@NotNull
 	private int number;
 	
 	@ManyToOne
-	@JoinColumn(name = "album_id", nullable = false)
+	@JoinColumn(name = "ALBUM_ID", nullable = false)
 	private Album album;
 
 	public Long getId() {

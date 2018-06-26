@@ -2,11 +2,8 @@ package com.practical.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -25,23 +22,21 @@ public class Artist implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ARTIST_ID")
 	private Long id;
 	
-	@NotNull
 	@Size(max = 30)
 	private String name;
    
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateFound;
 	
-	@NotNull
 	@Size(max = 30)
 	private String country;
 	
 	@OneToMany(mappedBy = "artist")
-	private Set<Album> album = new HashSet<Album>();
+	private List<Album> album;
 
 	public Long getId() {
 		return id;
@@ -59,12 +54,12 @@ public class Artist implements Serializable {
 		this.name = name;
 	}
 
-	public Date getDate() {
+	public Date getDateFound() {
 		return dateFound;
 	}
 
-	public void setDate(Date date) {
-		this.dateFound = date;
+	public void setDateFound(Date dateFound) {
+		this.dateFound = dateFound;
 	}
 
 	public String getCountry() {
@@ -75,13 +70,15 @@ public class Artist implements Serializable {
 		this.country = country;
 	}
 
-	public Set<Album> getAlbum() {
+	public List<Album> getAlbum() {
 		return album;
 	}
 
-	public void setAlbum(Set<Album> album) {
+	public void setAlbum(List<Album> album) {
 		this.album = album;
 	}
+
+
 	
 	
 }

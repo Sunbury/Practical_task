@@ -22,7 +22,7 @@ public class ArtistManagerBean {
 	public Artist createArtist(String name, Date date, String country) {
 		Artist artist = new Artist();
 		artist.setName(name);
-		artist.setDate(date);
+		artist.setDateFound(date);
 		artist.setCountry(country);
 		entityManager.persist(artist);
 		return artist;
@@ -30,7 +30,7 @@ public class ArtistManagerBean {
 	
 	public Artist updateArtist (String name, Date date, String country, Artist artist) {
 		artist.setName(name);
-		artist.setDate(date);
+		artist.setDateFound(date);
 		artist.setCountry(country);
 		entityManager.merge(artist);
 		return artist;

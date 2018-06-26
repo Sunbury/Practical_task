@@ -2,11 +2,8 @@ package com.practical.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -25,27 +22,25 @@ public class Album implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ALBUM_ID")
 	private Long id;
    
-	@NotNull
 	@Size(max = 40)
 	private String name;
 	
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateRelease;
 	
-	@NotNull
 	@Size(max = 40)
 	private String genre;
 	
 	@ManyToOne
-	@JoinColumn(name = "parent_id", nullable = false)
+	@JoinColumn(name = "ARTIST_ID", nullable = false)
 	private Artist artist;
 	
 	@OneToMany(mappedBy = "album")
-	private Set<Song> song = new HashSet<Song>();
+	private List<Song> song;
 
 	public Long getId() {
 		return id;
@@ -85,6 +80,14 @@ public class Album implements Serializable {
 
 	public void setArtist(Artist artist) {
 		this.artist = artist;
+	}
+
+	public List<Song> getSong() {
+		return song;
+	}
+
+	public void setSong(List<Song> song) {
+		this.song = song;
 	}
 	
 	
