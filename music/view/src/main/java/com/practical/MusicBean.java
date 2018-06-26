@@ -10,9 +10,9 @@ import javax.inject.Named;
 import com.practical.domain.Album;
 import com.practical.domain.Artist;
 import com.practical.domain.Song;
-import com.practical.ejb.AlbumManagerBean;
-import com.practical.ejb.ArtistManagerBean;
-import com.practical.ejb.SongManagerBean;
+import com.practical.ejb.AlbumDAO;
+import com.practical.ejb.ArtistDAO;
+import com.practical.ejb.SongDAO;
 
 @Named
 @SessionScoped
@@ -27,33 +27,46 @@ public class MusicBean implements Serializable {
 	private Album album;
 	private Song song;
 	
+	
 	@EJB
-	ArtistManagerBean artistManagerBean;
+	ArtistDAO artistDAO;
 	@EJB
-	AlbumManagerBean albumManagerBean;
+	AlbumDAO albumDAO;
 	@EJB
-	SongManagerBean songManagerBean;
+	SongDAO songDAO;
 	
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	
+	
+	
 	public void createArtist() {
-		if(artist == null)
-			try {
-				artist = artistManagerBean.createArtist("Some Artist", dateFormat.parse("17/07/1989"), "USA");
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		if(album == null)
-			try {
-				album = albumManagerBean.createAlbum("Some ALbum",dateFormat.parse("17/07/1989"), "genre", artist);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-		if(song == null)
-			song = songManagerBean.createSong("Some Song", 1, album);
+		artist = new Artist();
+		artist.setName("Some Artist");
+		try {
+			artist.setDateFound(dateFormat.parse("17/07/1989"));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		artist.setCountry("USA");
+		album = new Album();
+		album.setName("Some Album");
+		try {
+			album.setDateRelease(dateFormat.parse("17/07/1989"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		album.setGenre("genre");
+		album.setArtist(artist);
+		song= new Song();
+		song.setName("Some Song");
+		song.setNumber(1);
+		song.setAlbum(album);
 	}
 	
+	public void createData(){
+		createArtist();
+		artistDAO.create(artist);
+		albumDAO.create(album);
+		songDAO.create(song);
+	}
 }
