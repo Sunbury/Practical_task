@@ -35,11 +35,12 @@ public class Album implements Serializable {
 	@Size(max = 40)
 	private String genre;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "ARTIST_ID", nullable = false)
 	private Artist artist;
 	
-	@OneToMany(mappedBy = "album")
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Song> song;
 
 	public Long getId() {
@@ -89,7 +90,6 @@ public class Album implements Serializable {
 	public void setSong(List<Song> song) {
 		this.song = song;
 	}
-	
 	
 	
 }

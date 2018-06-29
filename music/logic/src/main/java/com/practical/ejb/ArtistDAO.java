@@ -8,6 +8,10 @@ import com.practical.domain.Artist;
 @Stateless
 @LocalBean
 public class ArtistDAO extends EntityDAO<Artist> implements IArtistDAO {
+
+	public ArtistDAO() {
+		super(Artist.class);
+	}
 	
 
 }

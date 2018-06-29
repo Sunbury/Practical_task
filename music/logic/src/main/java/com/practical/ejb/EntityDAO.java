@@ -1,7 +1,10 @@
 package com.practical.ejb;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 public class EntityDAO<T> implements IEntityDAO<T> {
@@ -11,7 +14,8 @@ public class EntityDAO<T> implements IEntityDAO<T> {
 	
 	Class<T> entityClass;
 	
-	public EntityDAO() {
+	public EntityDAO(Class<T> entityClass) {
+		this.entityClass = entityClass;
 	}
 
 	@Override
@@ -35,6 +39,23 @@ public class EntityDAO<T> implements IEntityDAO<T> {
 	@Override
 	public T find(Class<T> type, Object id) {
 		return entityManager.find(type, id);
+	}
+
+	@Override
+	public T findByName(String name) {
+		@SuppressWarnings("unchecked")
+		T entity = (T) entityManager.createQuery("FROM " + entityClass.getName() + " where name = :value1").
+				setParameter("value1", name).getSingleResult();
+		return entity;
+	}
+
+	@Override
+	public List<T> findAll() {
+		Query q = entityManager.createQuery("SELECT t FROM " + entityClass.getName()
+        + " t");
+		@SuppressWarnings("unchecked")
+		List<T> list = (List<T>) q.getResultList();
+		return list;
 	}
 
 

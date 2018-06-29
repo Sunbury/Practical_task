@@ -35,8 +35,12 @@ public class Artist implements Serializable {
 	@Size(max = 30)
 	private String country;
 	
-	@OneToMany(mappedBy = "artist")
+	@Size(max = 500)
+	private String photoRef;
+	
+	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Album> album;
+	
 
 	public Long getId() {
 		return id;
@@ -78,7 +82,13 @@ public class Artist implements Serializable {
 		this.album = album;
 	}
 
+	public String getPhotoRef() {
+		return photoRef;
+	}
 
-	
+	public void setPhotoRef(String photoRef) {
+		this.photoRef = photoRef;
+	}
+
 	
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+
+<p:dialog header="Добавление исполнителя" widgetVar="dlgAdd" minHeight="40" appendTo="@(body)" resizable="false">
+    <h:form>
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="name" value="Имя/название:" style="font-weight:bold" />
+            <p:inputText id="name" value="#{operationBean.artist.name}"/>
+            <br />
+            <h:outputLabel for="dateFound" value="Дата начала активности:" style="font-weight:bold" />
+            <p:inputText id="dateFound" value="#{operationBean.artist.dateFound}">
+            <f:convertDateTime pattern="yyyy-MM-dd"/> 
+            </p:inputText>
+            <br />
+            <h:outputLabel for="country" value="Страна:" style="font-weight:bold" />
+            <p:inputText id="country" value="#{operationBean.artist.country}"/>
+            <br />
+            <h:outputLabel for="photoRef" value="Ссылка на фото:" style="font-weight:bold" />
+            <p:inputText id="photoRef" value="#{operationBean.artist.photoRef}"/>
+            <br />
+            <p:commandButton value="Submit" update="form" icon="ui-icon-check" action="#{operationBean.addArtist()}"
+            oncomplete="PF('dlgAdd').hide();"/>
+        </h:panelGrid>
+    </h:form>
+</p:dialog>
+
+	<p:dialog header="Удаление исполнителя" widgetVar="dlgRemove" minHeight="40" appendTo="@(body)" resizable="false">
+    <h:form>
+    <p:outputLabel for="removeArtist" value="Выберите удаляемого исполнителя: " />
+           <p:selectOneMenu id="removeArtist" value="#{removeBean.artist}" panelStyle="width:auto"
+                         effect="fade" var="a" style="width:auto" filter="true">
+            <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.name}" itemValue="#{artist}" />
+             <p:column>
+                <h:outputText value="#{a.id}" />
+            </p:column>
+             <p:column>
+                <h:outputText value="#{a.name}" />
+            </p:column>
+        </p:selectOneMenu>
+        <p:commandButton value="Submit" update="form" oncomplete="PF('dlgRemove').hide" icon="ui-icon-check" action="#{removeBean.removeArtist()}" />
+    </h:form>
+    </p:dialog>
+</html>

@@ -9,4 +9,8 @@ import com.practical.domain.Song;
 @LocalBean
 public class SongDAO extends EntityDAO<Song> implements ISongDAO {
 
+	public SongDAO() {
+		super(Song.class);
+	}
+
 }
