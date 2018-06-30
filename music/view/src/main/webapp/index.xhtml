@@ -14,19 +14,19 @@
             <h:form>
                 <p:panelMenu style="width:300px">
                     <p:submenu label="Исполнитель">
-                        <p:menuitem value="Добавить" onclick="PF('dlgAdd').show()" icon="ui-icon-disk" />
-                        <p:menuitem value="Изменить" icon="ui-icon-arrowrefresh-1-w" />
-                        <p:menuitem value="Удалить" onclick="PF('dlgRemove').show()" icon="ui-icon-close" />
+                        <p:menuitem value="Добавить" onclick="PF('dlgAddArtist').show()" icon="ui-icon-disk" />
+                        <p:menuitem value="Изменить" onclick="PF('dlgEditArtist').show()" icon="ui-icon-arrowrefresh-1-w" />
+                        <p:menuitem value="Удалить" onclick="PF('dlgRemoveArtist').show()" icon="ui-icon-close" />
                     </p:submenu>
                     <p:submenu label="Альбом">
-                        <p:menuitem value="Добавить" onclick="PF('dlgAdd').show();" icon="ui-icon-disk" />
-                        <p:menuitem value="Изменить" icon="ui-icon-arrowrefresh-1-w" />
-                        <p:menuitem value="Удалить" icon="ui-icon-close" />
+                        <p:menuitem value="Добавить" onclick="PF('dlgAddAlbum').show();" icon="ui-icon-disk" />
+                        <p:menuitem value="Изменить" onclick="PF('dlgEditAlbum').show()" icon="ui-icon-arrowrefresh-1-w" />
+                        <p:menuitem value="Удалить" onclick="PF('dlgRemoveAlbum').show()" icon="ui-icon-close" />
                     </p:submenu>
                     <p:submenu label="Трек">
-                        <p:menuitem value="Добавить" onclick="PF('dlgAdd').show();" icon="ui-icon-disk" />
-                        <p:menuitem value="Изменить" icon="ui-icon-arrowrefresh-1-w" />
-                        <p:menuitem value="Удалить" icon="ui-icon-close" />
+                        <p:menuitem value="Добавить" onclick="PF('dlgAddSong').show();" icon="ui-icon-disk" />
+                        <p:menuitem value="Изменить" onclick="PF('dlgEditSong').show()" icon="ui-icon-arrowrefresh-1-w" />
+                        <p:menuitem value="Удалить" onclick="PF('dlgRemoveSong').show()" icon="ui-icon-close" />
                     </p:submenu>
                 </p:panelMenu>
             </h:form>

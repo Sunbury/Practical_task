@@ -29,8 +29,8 @@ public class Song implements Serializable {
    
 	private int number;
 	
-	@ManyToOne
-	@JoinColumn(name = "ALBUM_ID", nullable = false)
+	@ManyToOne(cascade=CascadeType.MERGE)
+	@JoinColumn(name = "ALBUM_ID", nullable=true)
 	private Album album;
 
 	public Long getId() {
@@ -64,6 +64,32 @@ public class Song implements Serializable {
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Song other = (Song) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
 	
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 
 public class EntityDAO<T> implements IEntityDAO<T> {
@@ -31,8 +32,10 @@ public class EntityDAO<T> implements IEntityDAO<T> {
 	}
 
 	@Override
+	@Transactional
 	public int remove(T t) {
-		entityManager.remove(t);
+		entityManager.remove(entityManager.contains(t) ? t : entityManager.merge(t));
+		entityManager.flush();
 		return 1;
 	}
 

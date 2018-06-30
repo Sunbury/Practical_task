@@ -38,7 +38,7 @@ public class Artist implements Serializable {
 	@Size(max = 500)
 	private String photoRef;
 	
-	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "artist", cascade = CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Album> album;
 	
 
