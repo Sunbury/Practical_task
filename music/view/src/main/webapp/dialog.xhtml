@@ -6,19 +6,19 @@
     <h:form styleClass="forupdate">
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="nameArtist" value="Имя/название:" style="font-weight:bold" />
-            <p:inputText id="nameArtist" value="#{operationBean.artist.name}"/>
-  
+            <p:inputText id="nameArtist" value="#{operationBean.artist.name}" />
+
             <h:outputLabel for="foundDate" value="Дата начала активности:" style="font-weight:bold" />
-        	<p:calendar id="foundDate" value="#{operationBean.artist.dateFound}" pattern="yyyy-MM-dd" mask="true" />
- 
+            <p:calendar id="foundDate" value="#{operationBean.artist.dateFound}" pattern="yyyy-MM-dd" mask="true" />
+
             <h:outputLabel for="country" value="Страна:" style="font-weight:bold" />
-            <p:inputText id="country" value="#{operationBean.artist.country}"/>
- 
+            <p:inputText id="country" value="#{operationBean.artist.country}" />
+
             <h:outputLabel for="photoRef" value="Ссылка на фото:" style="font-weight:bold" />
-            <p:inputText id="photoRef" value="#{operationBean.artist.photoRef}"/>
-  
-            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addArtist()}"
-            oncomplete="PF('dlgAddArtist').hide();"/>
+            <p:inputText id="photoRef" value="#{operationBean.artist.photoRef}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addArtist()}" oncomplete="PF('dlgAddArtist').hide();"
+            />
         </h:panelGrid>
     </h:form>
 </p:dialog>
@@ -26,24 +26,24 @@
 <p:dialog header="Добавление альбома" widgetVar="dlgAddAlbum" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
         <h:panelGrid columns="2" cellpadding="5">
-        <p:outputLabel for="selectArtist" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="selectArtist" value="#{operationBean.artistId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                    <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-        </p:selectOneMenu>
-        
+            <p:outputLabel for="selectArtist" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="selectArtist" value="#{operationBean.artistId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+            </p:selectOneMenu>
+
             <p:outputLabel for="nameAlbum" value="Название:" style="font-weight:bold" />
-            <p:inputText id="nameAlbum" value="#{operationBean.album.name}"/>
-  
+            <p:inputText id="nameAlbum" value="#{operationBean.album.name}" />
+
             <p:outputLabel for="dateRealse" value="Дата выпуска:" style="font-weight:bold" />
-        	<p:calendar id="dateRealse" value="#{operationBean.album.dateRelease}" pattern="yyyy-MM-dd" mask="true" />
- 
+            <p:calendar id="dateRealse" value="#{operationBean.album.dateRelease}" pattern="yyyy-MM-dd" mask="true" />
+
             <p:outputLabel for="genre" value="Жанр:" style="font-weight:bold" />
-            <p:inputText id="genre" value="#{operationBean.album.genre}"/>
-  
-            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addAlbum()}"
-            oncomplete="PF('dlgAddAlbum').hide();"/>
+            <p:inputText id="genre" value="#{operationBean.album.genre}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addAlbum()}" oncomplete="PF('dlgAddAlbum').hide();"
+            />
         </h:panelGrid>
     </h:form>
 </p:dialog>
@@ -51,181 +51,188 @@
 <p:dialog header="Добавление трека" widgetVar="dlgAddSong" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
         <h:panelGrid columns="2" cellpadding="5">
-        <p:outputLabel for="selectArtist3" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="selectArtist3" value="#{operationBean.artistId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                    <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-             		<f:ajax event="change" render="selectALbum2"/>
-        </p:selectOneMenu>
-        <p:outputLabel for="selectALbum2" value="Выберите альбом: " />
-           <p:selectOneMenu id="selectALbum2" value="#{operationBean.albumId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-             		<f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}" />
-        </p:selectOneMenu>
-        
-        
+            <p:outputLabel for="selectArtist3" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="selectArtist3" value="#{operationBean.artistId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+                <f:ajax event="change" render="selectALbum2" />
+            </p:selectOneMenu>
+            <p:outputLabel for="selectALbum2" value="Выберите альбом: " />
+            <p:selectOneMenu id="selectALbum2" value="#{operationBean.albumId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}"
+                />
+            </p:selectOneMenu>
+
+
             <p:outputLabel for="nameSong" value="Название:" style="font-weight:bold" />
-            <p:inputText id="nameSong" value="#{operationBean.song.name}"/>
- 
+            <p:inputText id="nameSong" value="#{operationBean.song.name}" />
+
             <p:outputLabel for="numberSong" value="Номер в альбоме:" style="font-weight:bold" />
-            <p:inputText id="numberSong" value="#{operationBean.song.number}"/>
-  
-            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addSong()}"
-            oncomplete="PF('dlgAddSong').hide();"/>
+            <p:inputText id="numberSong" value="#{operationBean.song.number}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" icon="ui-icon-check" action="#{operationBean.addSong()}" oncomplete="PF('dlgAddSong').hide();"
+            />
         </h:panelGrid>
     </h:form>
 </p:dialog>
 
-	
-	<p:dialog header="Удаление исполнителя" widgetVar="dlgRemoveArtist" minHeight="40" appendTo="@(body)" resizable="false">
+
+<p:dialog header="Удаление исполнителя" widgetVar="dlgRemoveArtist" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="removeArtist" value="Выберите удаляемого исполнителя: " />
-           <p:selectOneMenu id="removeArtist" value="#{removeBean.artistId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                     <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-        </p:selectOneMenu>
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeArtist()}"  oncomplete="PF('dlgRemoveArtist').hide();" icon="ui-icon-check"/>
-    </h:panelGrid>
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="removeArtist" value="Выберите удаляемого исполнителя: " />
+            <p:selectOneMenu id="removeArtist" value="#{removeBean.artistId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+            </p:selectOneMenu>
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeArtist()}" oncomplete="PF('dlgRemoveArtist').hide();"
+                icon="ui-icon-check" />
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
-    <p:dialog header="Удаление альбома" widgetVar="dlgRemoveAlbum" minHeight="40" appendTo="@(body)" resizable="false">
+</p:dialog>
+
+<p:dialog header="Удаление альбома" widgetVar="dlgRemoveAlbum" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="selectArtist2" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="selectArtist2" panelStyle="width:auto"
-                         effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener}" >
-             		<f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-             		<f:ajax event="change" render="removeAlbum"/>
-        </p:selectOneMenu>
-    <p:outputLabel for="removeAlbum" value="Выберите удаляемый альбом: " />
-           <p:selectOneMenu id="removeAlbum" value="#{removeBean.albumId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-             		<f:selectItems value="#{removeBean.artist.album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}" />
-        </p:selectOneMenu>
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeAlbum()}"  oncomplete="PF('dlgRemoveAlbum').hide();" icon="ui-icon-check"/>
-        
-    </h:panelGrid>
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="selectArtist2" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="selectArtist2" panelStyle="width:auto" effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener}">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+                <f:ajax event="change" render="removeAlbum" />
+            </p:selectOneMenu>
+            <p:outputLabel for="removeAlbum" value="Выберите удаляемый альбом: " />
+            <p:selectOneMenu id="removeAlbum" value="#{removeBean.albumId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItems value="#{removeBean.artist.album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}"
+                />
+            </p:selectOneMenu>
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeAlbum()}" oncomplete="PF('dlgRemoveAlbum').hide();"
+                icon="ui-icon-check" />
+
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
-    <p:dialog header="Удаление трека" widgetVar="dlgRemoveSong" minHeight="40" appendTo="@(body)" resizable="false">
+</p:dialog>
+
+<p:dialog header="Удаление трека" widgetVar="dlgRemoveSong" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="selectArtist4" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="selectArtist4" panelStyle="width:auto"
-                         effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener}" >
-             		<f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-             		<f:ajax event="change" render="removeAlbum2"/>
-        </p:selectOneMenu>
-    <p:outputLabel for="removeAlbum2" value="Выберите удаляемый альбом: " />
-           <p:selectOneMenu id="removeAlbum2" panelStyle="width:auto"
-                         effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener2}">
-             		<f:selectItems value="#{removeBean.artist.album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}" />
-             		<f:ajax event="change" render="removeSong"/>
-        </p:selectOneMenu>
-        <p:outputLabel for="removeSong" value="Выберите удаляемый трек: " />
-           <p:selectOneMenu id="removeSong" panelStyle="width:auto"
-                         effect="fade" style="width:auto" value="#{removeBean.songId}">
-             		<f:selectItems value="#{removeBean.album.song}" var="song" itemLabel="#{song.id} #{song.name}" itemValue="#{song.id}" />
-        </p:selectOneMenu>
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeSong()}"  oncomplete="PF('dlgRemoveSong').hide();" icon="ui-icon-check"/>
-        
-    </h:panelGrid>
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="selectArtist4" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="selectArtist4" panelStyle="width:auto" effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener}">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+                <f:ajax event="change" render="removeAlbum2" />
+            </p:selectOneMenu>
+            <p:outputLabel for="removeAlbum2" value="Выберите удаляемый альбом: " />
+            <p:selectOneMenu id="removeAlbum2" panelStyle="width:auto" effect="fade" style="width:auto" valueChangeListener="#{removeBean.selectOneMenuListener2}">
+                <f:selectItems value="#{removeBean.artist.album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}"
+                />
+                <f:ajax event="change" render="removeSong" />
+            </p:selectOneMenu>
+            <p:outputLabel for="removeSong" value="Выберите удаляемый трек: " />
+            <p:selectOneMenu id="removeSong" panelStyle="width:auto" effect="fade" style="width:auto" value="#{removeBean.songId}">
+                <f:selectItems value="#{removeBean.album.song}" var="song" itemLabel="#{song.id} #{song.name}" itemValue="#{song.id}" />
+            </p:selectOneMenu>
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{removeBean.removeSong()}" oncomplete="PF('dlgRemoveSong').hide();"
+                icon="ui-icon-check" />
+
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
-    <p:dialog header="Изменение данных о исполнителе" widgetVar="dlgEditArtist" minHeight="40" appendTo="@(body)" resizable="false">
+</p:dialog>
+
+<p:dialog header="Изменение данных о исполнителе" widgetVar="dlgEditArtist" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="editArtist" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="editArtist" value="#{operationBean.artist.id}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                     <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-        </p:selectOneMenu>
-        <h:outputLabel for="nameArtist" value="Имя/название:" style="font-weight:bold" />
-            <p:inputText id="nameArtist" value="#{operationBean.artist.name}"/>
-  
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="editArtist" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="editArtist" value="#{operationBean.artist.id}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+            </p:selectOneMenu>
+            <h:outputLabel for="nameArtist" value="Имя/название:" style="font-weight:bold" />
+            <p:inputText id="nameArtist" value="#{operationBean.artist.name}" />
+
             <h:outputLabel for="foundDate" value="Дата начала активности:" style="font-weight:bold" />
-        	<p:calendar id="foundDate" value="#{operationBean.artist.dateFound}" pattern="yyyy-MM-dd" mask="true" />
- 
+            <p:calendar id="foundDate" value="#{operationBean.artist.dateFound}" pattern="yyyy-MM-dd" mask="true" />
+
             <h:outputLabel for="country" value="Страна:" style="font-weight:bold" />
-            <p:inputText id="country" value="#{operationBean.artist.country}"/>
- 
+            <p:inputText id="country" value="#{operationBean.artist.country}" />
+
             <h:outputLabel for="photoRef" value="Ссылка на фото:" style="font-weight:bold" />
-            <p:inputText id="photoRef" value="#{operationBean.artist.photoRef}"/>
-            
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editArtist()}"  oncomplete="PF('dlgEditArtist').hide();" icon="ui-icon-check"/>
-    </h:panelGrid>
+            <p:inputText id="photoRef" value="#{operationBean.artist.photoRef}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editArtist()}" oncomplete="PF('dlgEditArtist').hide();"
+                icon="ui-icon-check" />
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
-    <p:dialog header="Изменение данных о альбоме" widgetVar="dlgEditAlbum" minHeight="40" appendTo="@(body)" resizable="false">
+</p:dialog>
+
+<p:dialog header="Изменение данных о альбоме" widgetVar="dlgEditAlbum" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="editArtist2" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="editArtist2" value="#{operationBean.artistId}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                     <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-             		<f:ajax event="change" render="editAlbum"/>
-        </p:selectOneMenu>
-        <p:outputLabel for="editAlbum" value="Выберите альбом: " />
-           <p:selectOneMenu id="editAlbum" value="#{operationBean.album.id}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-             		<f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}" />
-        </p:selectOneMenu>
- 			<p:outputLabel for="nameAlbum" value="Название:" style="font-weight:bold" />
-            <p:inputText id="nameAlbum" value="#{operationBean.album.name}"/>
-  
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="editArtist2" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="editArtist2" value="#{operationBean.artistId}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+                <f:ajax event="change" render="editAlbum" />
+            </p:selectOneMenu>
+            <p:outputLabel for="editAlbum" value="Выберите альбом: " />
+            <p:selectOneMenu id="editAlbum" value="#{operationBean.album.id}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}"
+                />
+            </p:selectOneMenu>
+            <p:outputLabel for="nameAlbum" value="Название:" style="font-weight:bold" />
+            <p:inputText id="nameAlbum" value="#{operationBean.album.name}" />
+
             <p:outputLabel for="dateRealse" value="Дата выпуска:" style="font-weight:bold" />
-        	<p:calendar id="dateRealse" value="#{operationBean.album.dateRelease}" pattern="yyyy-MM-dd" mask="true" />
- 
+            <p:calendar id="dateRealse" value="#{operationBean.album.dateRelease}" pattern="yyyy-MM-dd" mask="true" />
+
             <p:outputLabel for="genre" value="Жанр:" style="font-weight:bold" />
-            <p:inputText id="genre" value="#{operationBean.album.genre}"/>
-            
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editAlbum()}"  oncomplete="PF('dlgEditAlbum').hide();" icon="ui-icon-check"/>
-    </h:panelGrid>
+            <p:inputText id="genre" value="#{operationBean.album.genre}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editAlbum()}" oncomplete="PF('dlgEditAlbum').hide();"
+                icon="ui-icon-check" />
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
-    <p:dialog header="Изменение данных о треке" widgetVar="dlgEditSong" minHeight="40" appendTo="@(body)" resizable="false">
+</p:dialog>
+
+<p:dialog header="Изменение данных о треке" widgetVar="dlgEditSong" minHeight="40" appendTo="@(body)" resizable="false">
     <h:form styleClass="forupdate">
-    <h:panelGrid columns="2" cellpadding="5">
-    <p:outputLabel for="editArtist2" value="Выберите исполнителя: " />
-           <p:selectOneMenu id="editArtist2" valueChangeListener="#{operationBean.selectOneMenuListener}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-                     <f:selectItem itemLabel="--SELECT ONE--" itemValue=""/>
-             		<f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}" />
-             		<f:ajax event="change" render="editAlbum"/>
-        </p:selectOneMenu>
-        <p:outputLabel for="editAlbum" value="Выберите альбом: " />
-           <p:selectOneMenu id="editAlbum" valueChangeListener="#{operationBean.selectOneMenuListener2}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-             		<f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}" />
-             		<f:ajax event="change" render="editSong"/>
-        </p:selectOneMenu>
-        <p:outputLabel for="editSong" value="Выберите трек: " />
-        <p:selectOneMenu id="editSong" value="#{operationBean.song.id}" panelStyle="width:auto"
-                         effect="fade" style="width:auto">
-             		<f:selectItems value="#{operationBean.albumUpdate.song}" var="song" itemLabel="#{song.id} #{song.name}" itemValue="#{song.id}" />
-        </p:selectOneMenu>
-        
- 			<p:outputLabel for="nameSong" value="Название:" style="font-weight:bold" />
-            <p:inputText id="nameSong" value="#{operationBean.song.name}"/>
- 
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="editArtist2" value="Выберите исполнителя: " />
+            <p:selectOneMenu id="editArtist2" valueChangeListener="#{operationBean.selectOneMenuListener}" panelStyle="width:auto" effect="fade"
+                style="width:auto">
+                <f:selectItem itemLabel="--SELECT ONE--" itemValue="" />
+                <f:selectItems value="#{musicBean.artists}" var="artist" itemLabel="#{artist.id} #{artist.name}" itemValue="#{artist.id}"
+                />
+                <f:ajax event="change" render="editAlbum" />
+            </p:selectOneMenu>
+            <p:outputLabel for="editAlbum" value="Выберите альбом: " />
+            <p:selectOneMenu id="editAlbum" valueChangeListener="#{operationBean.selectOneMenuListener2}" panelStyle="width:auto" effect="fade"
+                style="width:auto">
+                <f:selectItems value="#{operationBean.FoundArtist().album}" var="album" itemLabel="#{album.id} #{album.name}" itemValue="#{album.id}"
+                />
+                <f:ajax event="change" render="editSong" />
+            </p:selectOneMenu>
+            <p:outputLabel for="editSong" value="Выберите трек: " />
+            <p:selectOneMenu id="editSong" value="#{operationBean.song.id}" panelStyle="width:auto" effect="fade" style="width:auto">
+                <f:selectItems value="#{operationBean.albumUpdate.song}" var="song" itemLabel="#{song.id} #{song.name}" itemValue="#{song.id}"
+                />
+            </p:selectOneMenu>
+
+            <p:outputLabel for="nameSong" value="Название:" style="font-weight:bold" />
+            <p:inputText id="nameSong" value="#{operationBean.song.name}" />
+
             <p:outputLabel for="numberSong" value="Номер в альбоме:" style="font-weight:bold" />
-            <p:inputText id="numberSong" value="#{operationBean.song.number}"/>
-            
-        <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editSong()}"  oncomplete="PF('dlgEditSong').hide();" icon="ui-icon-check"/>
-    </h:panelGrid>
+            <p:inputText id="numberSong" value="#{operationBean.song.number}" />
+
+            <p:commandButton value="Submit" update="form @(.forupdate)" action="#{operationBean.editSong()}" oncomplete="PF('dlgEditSong').hide();"
+                icon="ui-icon-check" />
+        </h:panelGrid>
     </h:form>
-    </p:dialog>
-    
+</p:dialog>
+
 </html>
