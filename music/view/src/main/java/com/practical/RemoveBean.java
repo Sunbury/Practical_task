@@ -66,12 +66,14 @@ public class RemoveBean implements Serializable {
 	public void selectOneMenuListener(ValueChangeEvent event) {
 	    artistId =Long.valueOf((String) event.getNewValue()).longValue();
 	    artist = artistDAO.find(Artist.class, artistId);
+		System.out.println(artist.getId().toString());
 	}
 	
 	public void selectOneMenuListener2(ValueChangeEvent event) {
 	    albumId =Long.valueOf((String) event.getNewValue()).longValue();
 		for(Album albumS : artist.getAlbum()) {
 			if (albumS.getId().equals(albumId)) {
+				System.out.println(albumS.getId().toString());
 				album = albumS;
 			}
 		}
